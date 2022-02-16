@@ -11,15 +11,20 @@ class Reproductor {
         const audi = new Audio(link.url)
         this.#audio = audi
         root.innerHTML= `
+    <div class="conteen">
         <div class="header">
         <button class="btnrep" id="restten"> -10</button>
         <h3>${link.nombre}</h3>
         <button class="btnrep" id="plusten">+10</button>
         </div>
+        <progress class="prog" id="progreso" max="" value=""></progress>
+        <div>
         <button class="btnrep" id="paly"><i class="fa-solid fa-play"></i></button>
         <button class="btnrep" id="pause"><i class="fa-solid fa-pause"></i></button>
         <button class="btnrep" id="mute"><i class="fa-solid fa-volume-xmark"></i></button>
         <input type="range" value="1" id="vlom" min="0" max="1" step="0.1">
+        </div>
+    </div>
         `
         const p = document.querySelector('#paly')
         const pu = document.querySelector('#pause')
@@ -27,13 +32,14 @@ class Reproductor {
         const mute = document.querySelector('#mute')
         const menos = document.querySelector('#restten')
         const mas = document.querySelector('#plusten')
+        const pro = document.querySelector('#progreso')
         this.Pause_Play(pu)
         this.Play_pause(p)
         this.Vol(vol)
         this.mutes(mute)
         this.rests(menos)
         this.plust(mas)
-        this.Ctime()
+        this.Ctime(pro)
     }
     Play_pause(target){
         target.addEventListener('click', () => this.#audio.play())
@@ -64,10 +70,12 @@ class Reproductor {
     plust(target){
         target.addEventListener('click', e => this.#audio.currentTime += 10)
     }
-    Ctime(){
+    Ctime(target){
         this.#audio.addEventListener('timeupdate', e => { 
         let timeAc = parseInt(this.#audio.currentTime)
         let finals = Math.floor(this.#dutari - 20) 
+        target.value = timeAc
+        target.max = this.#dutari
         if (timeAc == finals) {
         mensaje('Faltan 20s para que termine', 'alert')
         }
