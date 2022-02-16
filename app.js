@@ -22,7 +22,7 @@ class Reproductor {
         <button class="btnrep" id="paly"><i class="fa-solid fa-play"></i></button>
         <button class="btnrep" id="pause"><i class="fa-solid fa-pause"></i></button>
         <button class="btnrep" id="mute"><i class="fa-solid fa-volume-xmark"></i></button>
-        <input type="range" value="1" id="vlom" min="0" max="1" step="0.1">
+        <input class="rango" type="range" value="1" id="vlom" min="0" max="1" step="0.1">
         </div>
     </div>
         `
