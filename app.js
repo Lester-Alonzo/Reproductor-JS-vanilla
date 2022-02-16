@@ -14,7 +14,7 @@ class Reproductor {
     <div class="conteen">
         <div class="header">
         <button class="btnrep" id="restten"> -10</button>
-        <h3>${link.nombre}</h3>
+        <h3 class="title">${link.nombre}</h3>
         <button class="btnrep" id="plusten">+10</button>
         </div>
         <progress class="prog" id="progreso" max="" value=""></progress>
